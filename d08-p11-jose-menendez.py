@@ -310,8 +310,19 @@ def printNewPhrase(phrase, shift=0):
                 else:
                     print(Cursor.POS(2+contP,10+cont+contT)+j, end="")
             contP += 8
-            
-        select(phrase)
+        change_color(phrase, shift)
+
+def change_color(phrase, shift):
+    dir = ""
+    dir = ord(getch())
+    if dir == 77:
+        shift += 8
+        printNewPhrase(phrase, shift)
+    if dir == 75:
+        shift -= 8
+        printNewPhrase(phrase, shift)
+    if dir == 115 or dir == 83:
+        menu()
 
         
 def select(phrase):
