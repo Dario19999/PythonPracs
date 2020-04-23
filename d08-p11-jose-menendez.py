@@ -17,9 +17,9 @@ def printInfo():
 
 def printMenu():
     print(Cursor.POS(1,7)+"[1] Convertir Frase")
-    print(Cursor.POS(1,8)+"[S] Salir \n")
+    print(Cursor.POS(1,8)+"[S] Salir al menu\n")
     
-def initLetts():
+def initLetts(): #funcion que inicializa las listas que contienen los caracteres para formar las letras
     a = [
         "  ##    ",    
         " #  #   ",   
@@ -193,7 +193,7 @@ def initLetts():
     letters = [a,b,c,d,e,f,g,h,i,j,k,l,m,n,nh,o,p,q,r,s,t,u,v,w,x,y,z,sp]    
     return letters
 
-def getPhrase(phrase):
+def getPhrase(phrase):#funcion que retorna una lista con las letras de la frase
     
     letters = initLetts()
     newPhrase = []
@@ -257,7 +257,7 @@ def getPhrase(phrase):
             newPhrase.append(letters[27])
     return newPhrase
 
-def printNewPhrase(phrase, shift=0):
+def printNewPhrase(phrase, shift=0):#funcion que imprime la nueva frase
     os.system('cls')
     printInfo()
     print("\n[S] Salir")
@@ -276,7 +276,7 @@ def printNewPhrase(phrase, shift=0):
                     contP = 0
                     contT = 6
                 cont += 1
-                if(phrase == "psicodelico"):
+                if(phrase == "psicodelico"):#easter egg
                         print(Cursor.POS(2+contP,10+cont+contT)+color+j, end="")
                 else:
                     if(contP == shift):                  
@@ -287,9 +287,9 @@ def printNewPhrase(phrase, shift=0):
         if(phrase == "psicodelico"):
             pass
         else:
-            change_color(phrase, shift)
+            changeColor(phrase, shift)
 
-def change_color(phrase, shift):
+def changeColor(phrase, shift):#funcion que mueve los colores
     dir = ""
     dir = ord(getch())
     
@@ -308,16 +308,8 @@ def change_color(phrase, shift):
         printNewPhrase(phrase, shift)
     if dir == 115 or dir == 83:
         menu()
-
-def select(phrase):
-    dir = ""
-    dir = ord(getch())
-    shift = 0
-    if dir == 77:
-        shift += 8
-        printNewPhrase(phrase, shift)
         
-def randColor():
+def randColor():#funcion que retorna un color aleatorio
     colors = {Fore.RED, Fore.GREEN, Fore.YELLOW, Fore.BLUE, Fore.MAGENTA, Fore.CYAN}
     rand = random.randint(0,5)
     
@@ -325,7 +317,7 @@ def randColor():
     
     return color
 
-def menu():
+def menu():#funcion del menu
     os.system('cls')
     printInfo()
     printMenu()
