@@ -286,7 +286,7 @@ def getPhrase(phrase):
     return newPhrase
 
 
-def printNewPhrase(phrase):
+def printNewPhrase(phrase, shift=0):
     os.system('cls')
     printInfo()
     print("\n[S] Salir")
@@ -305,56 +305,24 @@ def printNewPhrase(phrase):
                     contP = 0
                     contT = 6
                 cont += 1
-                if(contP == 0):
+                if(contP == shift):
                     print(Cursor.POS(2+contP,10+cont+contT)+color+j, end="")
                 else:
                     print(Cursor.POS(2+contP,10+cont+contT)+j, end="")
             contP += 8
             
-        select(phrase, newPhrase)
+        select(phrase)
 
         
-def select(phrase, newPhrase):
+def select(phrase):
     dir = ""
     dir = ord(getch())
-    contR = 0
-    contL = 0
-    contP = 0
-    contT = 0
-    
+    shift = 0
     if dir == 77:
-        contR += 1
-        contP += 8
-            
-    for k in phrase:
-        color = randColor()
-        cont = 0
-        contP = 0
-        contT = 0
-        index = phrase.index(k)
-        if(index == contR):
-            for i in range(len(phrase)):
-                color = randColor()
-                cont = 0
-                for j in newPhrase[i+contR-1]:		    		    		    
-                    if(contP >= 120):
-                        contP = 0
-                        contT = 6
-                    cont += 1
-                    if(newPhrase.index(newPhrase[i]) == i+contR-1):
-                        print(Cursor.POS(2+contP,10+cont+contT)+color+j, end="")
-                contP += 8
-        else:
-            for i in range(len(phrase)):
-                color = randColor()
-                cont = 0
-                for j in newPhrase[i]:		    		    		    
-                    if(contP >= 120):
-                        contP = 0
-                        contT = 6
-                    cont += 1 
-                    print(Cursor.POS(2+contP,10+cont+contT)+j, end="")
-                contP += 8
+        shift += 8
+        printNewPhrase(phrase, shift)
+        
+ 
 
 
             
@@ -380,10 +348,9 @@ def menu():
             os.system('cls')
             printInfo()
             phrase = str(input("Ingrese su frase: "))
-            if(phrase.isalpha()):
-                printNewPhrase(phrase)
-            else:
-                print("No se aceptan numeros ni espacios vacios")
+            printNewPhrase(phrase)
+            # else:
+            #     print("No se aceptan numeros ni espacios vacios")
             pre = str(input("\nDesea ingresar una nueva frase? (y/n):"))
             if(pre == "y"):
                 continue
