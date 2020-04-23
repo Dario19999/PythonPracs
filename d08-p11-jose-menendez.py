@@ -305,26 +305,39 @@ def printNewPhrase(phrase, shift=0):
                     contP = 0
                     contT = 6
                 cont += 1
-                if(contP == shift):
-                    print(Cursor.POS(2+contP,10+cont+contT)+color+j, end="")
+                if(phrase == "lsd"):
+                        print(Cursor.POS(2+contP,10+cont+contT)+color+j, end="")
                 else:
-                    print(Cursor.POS(2+contP,10+cont+contT)+j, end="")
+                    if(contP == shift):
+                        print(Cursor.POS(2+contP,10+cont+contT)+color+j, end="")
+                    else:
+                        print(Cursor.POS(2+contP,10+cont+contT)+j, end="")
             contP += 8
-        change_color(phrase, shift)
+        if(phrase == "lsd"):
+            pass
+        else:
+            change_color(phrase, shift)
 
 def change_color(phrase, shift):
     dir = ""
     dir = ord(getch())
+    
+    max = (len(phrase)-1)*8
     if dir == 77:
-        shift += 8
+        if(shift >= max):
+            shift = 0
+        else:
+            shift += 8
         printNewPhrase(phrase, shift)
     if dir == 75:
-        shift -= 8
+        if(shift <= 0):
+            shift = max
+        else:
+            shift -= 8
         printNewPhrase(phrase, shift)
     if dir == 115 or dir == 83:
         menu()
 
-        
 def select(phrase):
     dir = ""
     dir = ord(getch())
@@ -332,12 +345,6 @@ def select(phrase):
     if dir == 77:
         shift += 8
         printNewPhrase(phrase, shift)
-        
- 
-
-
-            
-        
         
 def randColor():
     colors = {Fore.RED, Fore.GREEN, Fore.YELLOW, Fore.BLUE, Fore.MAGENTA, Fore.CYAN, Fore.WHITE}
