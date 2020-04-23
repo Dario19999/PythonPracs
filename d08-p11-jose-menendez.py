@@ -201,90 +201,61 @@ def getPhrase(phrase):
     for i in phrase:
         if(i == "a") | (i == "A"):
             newPhrase.append(letters[0])
-            #return letters[0]
         elif(i == "b") | (i == "B"):
             newPhrase.append(letters[1])
-            #return letters[1]
         elif(i == "c") | (i == "C"):
             newPhrase.append(letters[2])  
-            #return letters[2]
         elif(i == "d") | (i == "D"):
             newPhrase.append(letters[3])
-            #return letters[3]
         elif(i == "e") | (i == "E"):
             newPhrase.append(letters[4])
-            #return letters[4]
         elif(i == "f") | (i == "F"):
             newPhrase.append(letters[5])
-            #return letters[5]
         elif(i == "g") | (i == "G"):
             newPhrase.append(letters[6])
-            #return letters[6]
         elif(i == "h") | (i == "H"):
             newPhrase.append(letters[7])
-            #return letters[7]
         elif(i == "i") | (i == "I"):
             newPhrase.append(letters[8])
-            #return letters[8]
         elif(i == "j") | (i == "J"):
             newPhrase.append(letters[9])
-            #return letters[9]
         elif(i == "k") | (i == "K"):
             newPhrase.append(letters[10])
-            #return letters[10]
         elif(i == "l") | (i == "L"):
             newPhrase.append(letters[11])
-            #return letters[11]
         elif(i == "m") | (i == "M"):
             newPhrase.append(letters[12])
-            #return letters[12]
         elif(i == "n") | (i == "N"):
             newPhrase.append(letters[13])
-            #return letters[13]
         elif(i == u"ñ") | (i == u"Ñ"):
             newPhrase.append(letters[14])
-            #return letters[14]
         elif(i == "o") | (i == "O"):
             newPhrase.append(letters[15])
-            #return letters[15]
         elif(i == "p") | (i == "P"):
             newPhrase.append(letters[16])
-            #return letters[16]
         elif(i == "q") | (i == "Q"):
             newPhrase.append(letters[17])
-            #return letters[17]
         elif(i == "r") | (i == "R"):
             newPhrase.append(letters[18])
-            #return letters[18]
         elif(i == "s") | (i == "S"):
             newPhrase.append(letters[19])
-            #return letters[19]
         elif(i == "t") | (i == "T"):
             newPhrase.append(letters[20])
-            #return letters[20]
         elif(i == "u") | (i == "U"):
             newPhrase.append(letters[21])
-            #return letters[21]
         elif(i == "v") | (i == "V"):
             newPhrase.append(letters[22])
-            #return letters[22]
         elif(i == "w") | (i == "W"):
             newPhrase.append(letters[23])
-            #return letters[23]
         elif(i == "x") | (i == "X"):
             newPhrase.append(letters[24])
-            #return letters[24]
         elif(i == "y") | (i == "Y"):
             newPhrase.append(letters[25])
-            #return letters[25]
         elif(i == "z") | (i == "Z"):
             newPhrase.append(letters[26])
-            #return letters[26]
         elif(i == " "):
             newPhrase.append(letters[27])
-            #return letters[27]
     return newPhrase
-
 
 def printNewPhrase(phrase, shift=0):
     os.system('cls')
@@ -305,15 +276,15 @@ def printNewPhrase(phrase, shift=0):
                     contP = 0
                     contT = 6
                 cont += 1
-                if(phrase == "lsd"):
+                if(phrase == "psicodelico"):
                         print(Cursor.POS(2+contP,10+cont+contT)+color+j, end="")
                 else:
-                    if(contP == shift):
+                    if(contP == shift):                  
                         print(Cursor.POS(2+contP,10+cont+contT)+color+j, end="")
                     else:
                         print(Cursor.POS(2+contP,10+cont+contT)+j, end="")
             contP += 8
-        if(phrase == "lsd"):
+        if(phrase == "psicodelico"):
             pass
         else:
             change_color(phrase, shift)
@@ -347,8 +318,8 @@ def select(phrase):
         printNewPhrase(phrase, shift)
         
 def randColor():
-    colors = {Fore.RED, Fore.GREEN, Fore.YELLOW, Fore.BLUE, Fore.MAGENTA, Fore.CYAN, Fore.WHITE}
-    rand = random.randint(0,6)
+    colors = {Fore.RED, Fore.GREEN, Fore.YELLOW, Fore.BLUE, Fore.MAGENTA, Fore.CYAN}
+    rand = random.randint(0,5)
     
     color = list(colors)[rand]
     
@@ -367,8 +338,6 @@ def menu():
             printInfo()
             phrase = str(input("Ingrese su frase: "))
             printNewPhrase(phrase)
-            # else:
-            #     print("No se aceptan numeros ni espacios vacios")
             pre = str(input("\nDesea ingresar una nueva frase? (y/n):"))
             if(pre == "y"):
                 continue
