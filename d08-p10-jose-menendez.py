@@ -207,5 +207,3 @@ def display(shw=True,fig="",contxC=0,contyC=0,contxR=0,contyR=0,contxT=0,contyT=
     print("Proceso finalizado...")
 	
 display()
-
-
