@@ -286,7 +286,7 @@ def getPhrase(phrase):
     return newPhrase
 
 
-def printNewPhrase(phrase):
+def printNewPhrase(phrase, shift=0):
     os.system('cls')
     printInfo()
     print("\n[S] Salir")
@@ -305,13 +305,24 @@ def printNewPhrase(phrase):
                     contP = 0
                     contT = 6
                 cont += 1
-                if(contP == 0):
+                if(contP == shift):
                     print(Cursor.POS(2+contP,10+cont+contT)+color+j, end="")
                 else:
                     print(Cursor.POS(2+contP,10+cont+contT)+j, end="")
             contP += 8
-            
-        select(phrase, newPhrase)
+        change_color(phrase, shift)
+
+def change_color(phrase, shift):
+    dir = ""
+    dir = ord(getch())
+    if dir == 77:
+        shift += 8
+        printNewPhrase(phrase, shift)
+    if dir == 75:
+        shift -= 8
+        printNewPhrase(phrase, shift)
+    if dir == 115 or dir == 83:
+        menu()
 
         
 def select(phrase, newPhrase):
