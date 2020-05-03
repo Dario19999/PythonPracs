@@ -349,16 +349,3 @@ def menu():#funcion del menu
     print("Ha salido del programa...")
 
 menu() 
-    
-
-
-
-
-
-
-
-
-
-
-    
-
