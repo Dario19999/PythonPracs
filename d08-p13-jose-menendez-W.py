@@ -3,11 +3,9 @@
 #chavez romo jonathan eduardo
 
 from colorama import init, Style, Back, Fore, Cursor
-
 init(autoreset=True)
 import os, sys, subprocess
 from msvcrt import getch
-from collections import defaultdict
 
 def printInfo():
     print(Cursor.POS(47,23)+Fore.RED+"x---------------------------x")
@@ -37,12 +35,12 @@ def newFileSign():
     print(Cursor.POS(31,8)+Fore.RED+" \____/_|  \___|\__,_|_|    \_| |_/_|  \___|_| |_|_| \_/ \___/ ")
                                                                
 def editSign():
-    print(Cursor.POS(47,2)+Fore.CYAN+"___  ___          _                    _______    _ _ _             ")
-    print(Cursor.POS(47,3)+Fore.CYAN+"|  \/  |         | |                  / /  ___|  | (_) |            ")
-    print(Cursor.POS(47,4)+Fore.CYAN+"| .  . | ___  ___| |_ _ __ __ _ _ __ / /| |__  __| |_| |_ __ _ _ __ ")
-    print(Cursor.POS(47,5)+Fore.CYAN+"| |\/| |/ _ \/ __| __| '__/ _` | '__/ / |  __|/ _` | | __/ _` | '__|")
-    print(Cursor.POS(47,6)+Fore.CYAN+"| |  | | (_) \__ \ |_| | | (_| | | / /  | |__| (_| | | || (_| | |   ")
-    print(Cursor.POS(47,7)+Fore.CYAN+"\_|  |_/\___/|___/\__|_|  \__,_|_|/_/   \____/\__,_|_|\__\__,_|_|   ")
+    print(Cursor.POS(47,3)+Fore.CYAN+"___  ___          _                    _______    _ _ _             ")
+    print(Cursor.POS(47,4)+Fore.CYAN+"|  \/  |         | |                  / /  ___|  | (_) |            ")
+    print(Cursor.POS(47,5)+Fore.CYAN+"| .  . | ___  ___| |_ _ __ __ _ _ __ / /| |__  __| |_| |_ __ _ _ __ ")
+    print(Cursor.POS(47,6)+Fore.CYAN+"| |\/| |/ _ \/ __| __| '__/ _` | '__/ / |  __|/ _` | | __/ _` | '__|")
+    print(Cursor.POS(47,7)+Fore.CYAN+"| |  | | (_) \__ \ |_| | | (_| | | / /  | |__| (_| | | || (_| | |   ")
+    print(Cursor.POS(47,8)+Fore.CYAN+"\_|  |_/\___/|___/\__|_|  \__,_|_|/_/   \____/\__,_|_|\__\__,_|_|   ")
     
 def menuInfo(selected = 1,fore = Fore.GREEN, back = Back.BLACK):
     if(selected == 1):
@@ -87,7 +85,7 @@ def editFrame():
         if(superiorL == 0):
             print(Cursor.POS(3,11)+Fore.CYAN+"╔", end="")
         elif(superiorL == 76):
-            print(Cursor.POS(118,11)+Fore.CYAN+"╗")
+            print(Cursor.POS(118,11)+Fore.CYAN+"╣")
         else:
             print(Cursor.POS(42+superiorL,11)+Fore.CYAN+"═", end="")
             
@@ -95,7 +93,7 @@ def editFrame():
         if(superiorL2 == 0):
             print(Cursor.POS(3,2)+Fore.CYAN+"╔", end="")
         elif(superiorL2 == 39):
-            print(Cursor.POS(42,2)+Fore.CYAN+"╗")
+            print(Cursor.POS(42,2)+Fore.CYAN+"╦")
         else:
             print(Cursor.POS(3+superiorL2,2)+Fore.CYAN+"═", end="") 
              
@@ -122,27 +120,27 @@ def editFrame():
         print(Cursor.POS(118,12+rightL)+Fore.CYAN+"║")
 
 def frame(color = Fore.GREEN):
-    for superiorL in range(120):
+    for superiorL in range(116):
         if(superiorL == 0):
-            print(color+"╔", end="")
-        elif(superiorL == 119):
-            print(color+"╗")
+            print(Cursor.POS(3,2)+color+"╔", end="")
+        elif(superiorL == 115):
+            print(Cursor.POS(118,2)+color+"╗")
         else:
             print(color+"═", end="")
             
-    for leftL in range(27):
-        print(color+"║")
+    for leftL in range(25):
+        print(Cursor.POS(3,3+leftL)+color+"║")
 
-    for inferiorL in range(120):
+    for inferiorL in range(116):
         if(inferiorL == 0):
-            print(color+"╚", end="")
-        elif(inferiorL == 119):
-            print(color+"╝")
+            print(Cursor.POS(3,28)+color+"╚", end="")
+        elif(inferiorL == 115):
+            print(Cursor.POS(118,28)+color+"╝")
         else:
             print(color+"═", end="")
             
-    for rightL in range(27):
-        print(Cursor.POS(120,2+rightL)+color+"║")
+    for rightL in range(25):
+        print(Cursor.POS(118,3+rightL)+color+"║")
     
 def newFile(name):
     try:

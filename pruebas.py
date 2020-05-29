@@ -12,6 +12,7 @@ import os
 # print(txtarr)
 
 
-# while(True):
-#     d = ord(getch())
-#     print(d)
+
+while(True):
+    d = ord(getch())
+    print(d)
